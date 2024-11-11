@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Matsuyama",
+			"country": {
+				"code": "JP",
+				"name": "Japan"
+			},
+			"subdivision": {
+				"code": "13",
+				"name": "Tokyo"
+			},
+			"timezone": "Asia/Tokyo",
+			"latitude": 35.6682,
+			"longitude": 139.6647,
+			"postalCode": "156-0041"
+		},
+		"timestamp": 1731295643123
+	}
+}
