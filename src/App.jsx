@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
 
-function randomValueFromArray(array) {
-  const random = Math.floor(Math.random() * array.length);
-  return array[random];
-}
-
 export default function App() {
   const [name, setName] = useState('Bob');
   const [unitSystem, setUnitSystem] = useState('us'); 
@@ -24,7 +19,7 @@ export default function App() {
   }
 
   function handleUnitChange(event) {
-    setUnitSystem(event.target.value); 
+    setUnitSystem(event.target.value);  
   }
 
   return (
