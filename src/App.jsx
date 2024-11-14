@@ -1,25 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState } from "react";
 
 export default function App() {
-  const [name, setName] = useState('Bob');
-  const [unitSystem, setUnitSystem] = useState('us'); 
+  const [name, setName] = useState('');
+  const [unitSystem, setUnitSystem] = useState('us');
   const [story, setStory] = useState('');
 
   async function generateStory(event) {
     event.preventDefault();
 
-    const response = await fetch(`/.netlify/functions/silly_story?name=${name}&unitSystem=${unitSystem}`);
-    const data = await response.json();
+    const inputName = name.trim() || 'Bob';
+
+    const response = await fetch(`/.netlify/functions/silly_story?name=${inputName}&unitSystem=${unitSystem}`);
     
-    setStory(data.message);
+    if (response.ok) {
+      const data = await response.json();
+      setStory(data.message); 
+    } else {
+      setStory('Error generating story');
+    }
   }
 
   function handleNameChange(event) {
-    setName(event.target.value || 'Bob'); 
+    setName(event.target.value);
   }
 
   function handleUnitChange(event) {
-    setUnitSystem(event.target.value);  
+    setUnitSystem(event.target.value);
   }
 
   return (
@@ -29,8 +35,9 @@ export default function App() {
         <input
           type="text"
           id="customname"
-          value={name}
+          value={name} 
           onChange={handleNameChange} 
+          placeholder=""
         />
       </div>
 
@@ -40,14 +47,14 @@ export default function App() {
           type="radio"
           value="us"
           checked={unitSystem === "us"}
-          onChange={handleUnitChange} 
+          onChange={handleUnitChange}
         />
         <label htmlFor="uk">UK</label>
         <input
           type="radio"
           value="uk"
           checked={unitSystem === "uk"}
-          onChange={handleUnitChange} 
+          onChange={handleUnitChange}
         />
       </div>
 
@@ -56,10 +63,11 @@ export default function App() {
       </div>
 
       <div>
-        <p id="storyOutput" style={{ whiteSpace: 'pre-wrap', marginTop: '20px', border: '1px solid #ccc', padding: '10px' }}>
-          {story || 'Click a button to generate a random story!'}
+        <p id="storyOutput" style={{ whiteSpace: 'pre-wrap', marginTop: '20px', border: '1px solid #ccc', padding: '10px',  display: story ? 'block' : 'none' }}>
+          {story}
         </p>
       </div>
+
     </>
   );
 }

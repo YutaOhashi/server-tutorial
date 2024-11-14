@@ -1,7 +1,7 @@
 {
 	"geolocation": {
 		"data": {
-			"city": "Matsuyama",
+			"city": "Kinuta",
 			"country": {
 				"code": "JP",
 				"name": "Japan"
@@ -11,10 +11,10 @@
 				"name": "Tokyo"
 			},
 			"timezone": "Asia/Tokyo",
-			"latitude": 35.6682,
-			"longitude": 139.6647,
-			"postalCode": "156-0041"
+			"latitude": 35.6544,
+			"longitude": 139.6142,
+			"postalCode": "157-0071"
 		},
-		"timestamp": 1731297008167
+		"timestamp": 1731620602002
 	}
 }
