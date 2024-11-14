@@ -30,10 +30,7 @@ export default async (req) => {
       unitWeight = 'stone';
   }
 
-  const story = 
-  `It was ${finalTemperature} ${unitTemperature} outside, so ${newXItem} went for a walk. 
-  When they got to ${newYItem}, they stared in horror for a few moments, then ${newZItem}. 
-  ${name} saw the whole thing, but was not surprised — ${newXItem} weighs ${finalWeight} ${unitWeight}, and it was a hot day.`;
+  const story = `It was ${finalTemperature} ${unitTemperature} outside, so ${newXItem} went for a walk. When they got to ${newYItem}, they stared in horror for a few moments, then ${newZItem}. ${name} saw the whole thing, but was not surprised — ${newXItem} weighs ${finalWeight} ${unitWeight}, and it was a hot day.`;
 
   const data = { message: story };
 
